@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 
 namespace Assets.Serialization
@@ -62,13 +63,13 @@ namespace Assets.Serialization
         /// Write an integer to output.
         /// </summary>
         /// <param name="i">Number to write</param>
-        private void Write(int i) => Writer.Write(i);
+        private void Write(int i) => Writer.Write(i.ToString(CultureInfo.InvariantCulture));
 
         /// <summary>
         /// Write a float to output.
         /// </summary>
         /// <param name="f"></param>
-        private void Write(float f) => Writer.Write(f);
+        private void Write(float f) => Writer.Write(f.ToString(CultureInfo.InvariantCulture));
 
         /// <summary>
         /// Write a character to output.
