@@ -1,0 +1,43 @@
+# things that UnityVS will regenerate by itself
+*.csproj
+*.sln
+
+# Unity
+Temp/
+Obj/
+Library/
+UnityPlayer_Symbols.pdb
+
+# MonoDevelop user-specific
+*.userprefs
+
+# Visual Studio build artifacts
+[Dd]ebug/
+[Rr]elease/
+x64/
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio user-specific
+*.suo
+*.user
+*.sln.docstates
+
+# Debug artifacts
+*.mdb
+*.mdb.meta
+*.pdb
+*.pdb.meta
+
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# OS metadata
+.DS_Store
+Thumbs.db
+Thumbs.db.meta
+Desktop.ini
+*~
+
+UnityVS.meta
