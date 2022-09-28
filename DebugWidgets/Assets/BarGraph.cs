@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -142,13 +141,13 @@ public class BarGraph : MonoBehaviour
         // TODO: Instantiate Prefab and put it inside of the game object that has the canvas.
         // Set its position to position and its rotation to the magic value Quaternion.identity, which means
         // "don't rotate it".
-        var go = null;  // Change null to a call to Instantiate
+        GameObject go = null;  // Change null to a call to Instantiate
 
-        // TODO: Name the GameObject name
+        // TODO: Give the GameObject the specified name
         
 
         // TODO: Get the BarGraph component from the game object we just made
-        var bgComponent = null;  // Change null here
+        BarGraph bgComponent = null;  // Change null here
 
         // TODO set bgComponent's Min and Max fields to min and max
         
