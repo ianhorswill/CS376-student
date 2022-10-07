@@ -26,16 +26,32 @@ public class Player : MonoBehaviour
     /// </summary>
     public float OrbVelocity = 10;
 
+    /// <summary>
+    /// Handle moving and firing.
+    /// Called by Uniity every 1/50th of a second, regardless of the graphics card's frame rate
+    /// </summary>
+    // ReSharper disable once UnusedMember.Local
+    void FixedUpdate()
+    {
+        Manoeuvre();
+        MaybeFire();
+    }
 
     /// <summary>
     /// Fire if the player is pushing the button for the Fire axis
     /// Unlike the Enemies, the player has no cooldown, so they shoot a whole blob of orbs
-    /// The orb should be placed one unit "in front" of the player.  transform.right will give us a vector
-    /// in the direction the player is facing.
+    /// </summary>
+    void MaybeFire()
+    {
+        // TODO
+    }
+
+    /// <summary>
+    /// Fire one orb.  The orb should be placed one unit "in front" of the player.
+    /// transform.right will give us a vector in the direction the player is facing.
     /// It should move in the same direction (transform.right), but at speed OrbVelocity.
     /// </summary>
-    // ReSharper disable once UnusedMember.Local
-    void Update()
+    private void FireOrb()
     {
         // TODO
     }
@@ -46,8 +62,7 @@ public class Player : MonoBehaviour
     /// Note that this is in *world* coordinates, so the direction of our thrust doesn't change as we rotate
     /// Set our angularVelocity to the Rotate axis time RotateSpeed
     /// </summary>
-    // ReSharper disable once UnusedMember.Local
-    void FixedUpdate()
+    void Manoeuvre()
     {
         // TODO
     }
