@@ -19,7 +19,7 @@ public class ParticlePhysics : MonoBehaviour
                     return eulerVelocity;
 
                     case IntegratorType.Verlet:
-                    return ((Vector2)transform.position - previousPosition)/Time.fixedDeltaTime;
+                    return ((Vector2)transform.position - PreviousPosition)/Time.fixedDeltaTime;
 
                 default:
                     throw new InvalidOperationException("Invalid setting for Integrator: "+ PhysicsParameters.Integrator);
@@ -34,7 +34,7 @@ public class ParticlePhysics : MonoBehaviour
                     break;
 
                 case IntegratorType.Verlet:
-                    previousPosition = (Vector2) transform.position - Time.fixedDeltaTime*value;
+                    PreviousPosition = (Vector2) transform.position - Time.fixedDeltaTime*value;
                     break;
 
                 default:
@@ -46,9 +46,11 @@ public class ParticlePhysics : MonoBehaviour
     public float Mass;
     public float Radius;
     public float Charge;
-    
+
+    public ParticlePhysics Nucleus;
+
     // Verlet integrator state
-    Vector2 previousPosition;
+    public Vector2 PreviousPosition;
 
     // Euler integrator state
     Vector2 eulerVelocity;
@@ -93,18 +95,19 @@ public class ParticlePhysics : MonoBehaviour
 	        Mass = Radius*Radius;
 
         // Initialize Verlet integrator
-	    previousPosition = transform.position;
+	    PreviousPosition = transform.position;
 	}
 	
 	/// <summary>
     /// Update physics state
     /// </summary>
 	internal void FixedUpdate ()
-	{
-	    // Compute force
+    {
+        // Compute force
 	    var force = new Vector2(0, -PhysicsParameters.G);
 	    foreach (var f in appliedForces)
 	        force += f.CurrentForce;
+
          
         // Integrate
 	    float deltaT = Time.fixedDeltaTime;
@@ -114,12 +117,12 @@ public class ParticlePhysics : MonoBehaviour
         switch (PhysicsParameters.Integrator)
 	    {
 	        case IntegratorType.Euler:
-	            eulerVelocity += deltaT*force/Mass;
+                eulerVelocity += deltaT*force/Mass;
 	            newPosition = transform.position + (Vector3) (deltaT*eulerVelocity);
 	            break;
 
 	        case IntegratorType.Verlet:
-	            newPosition = 2*oldPosition - previousPosition + force*deltaT*deltaT/Mass;
+                newPosition = 2 * oldPosition - PreviousPosition + force*deltaT*deltaT;
 	            break;
 
 	        default:
@@ -130,7 +133,7 @@ public class ParticlePhysics : MonoBehaviour
 	        newPosition.y = oldPosition.y;
 
 	    transform.position = newPosition;
-        previousPosition = oldPosition;
+        PreviousPosition = oldPosition;
     }
 
     /// <summary>

@@ -52,7 +52,12 @@ public class Spring : MonoBehaviour
 	        p1Force = Particle1.AddAppliedForce();
 	        p2Force = Particle2.AddAppliedForce();
 	    }
-	}
+
+        if (Particle1.Charge > 0)
+            Particle1.Nucleus = Particle2.Nucleus = Particle1;
+        if (Particle2.Charge > 0)
+            Particle1.Nucleus = Particle2.Nucleus = Particle2;
+    }
 	
 	/// <summary>
 	/// Recompute forces applied to particles
@@ -61,8 +66,8 @@ public class Spring : MonoBehaviour
     /// </summary>
 	internal void FixedUpdate ()
 	{
-	    var p1 = Particle1.transform.position;
-	    var p2 = Particle2.transform.position;
+	    var p1 = (Vector2)Particle1.transform.position;
+	    var p2 = (Vector2)Particle2.transform.position;
 	    var delta = p1 - p2;
 	    var length = delta.magnitude;
 	    var deltaNorm = delta/length;
@@ -71,14 +76,16 @@ public class Spring : MonoBehaviour
 	        //var v1 = Particle1.Velocity;
 	        //var v2 = Particle2.Velocity;
 	        var adjustment = 0.5f*(length - restingLength)*deltaNorm;
-	        Particle1.transform.position -= adjustment;
-            Particle2.transform.position += adjustment;
+	        Particle1.transform.position -= (Vector3)adjustment;
+            Particle1.PreviousPosition -= adjustment;
+            Particle2.transform.position += (Vector3)adjustment;
+            Particle2.PreviousPosition += adjustment;
 	        //Particle1.Velocity = v1;
 	        //Particle2.Velocity = v2;
 	    }
 	    else
 	    {
-	        Vector2 springForce = deltaNorm*(restingLength - length)*PhysicsParameters.K;
+            Vector2 springForce = deltaNorm*(restingLength - length)*PhysicsParameters.K;
 	        var relativeVelocity = Particle1.Velocity - Particle2.Velocity;
 	        Vector2 dampingForce = -deltaNorm*Vector2.Dot(relativeVelocity, deltaNorm)*PhysicsParameters.Damping;
 	        var force = springForce + dampingForce;

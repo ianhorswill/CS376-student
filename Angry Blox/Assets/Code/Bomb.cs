@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
 public class Bomb : MonoBehaviour {
-    public float ThresholdForce = 2;
+    public float ThresholdImpulse = 5;
     public GameObject ExplosionPrefab;
 }

@@ -74,6 +74,8 @@ public class ElectrostaticForceManager : MonoBehaviour {
     /// <returns></returns>
     private Vector2 Force(ParticlePhysics p, ParticlePhysics q)
     {
+        //if (p.Nucleus == q.Nucleus)
+        //    return Vector2.zero;
         var pToq = q.transform.position - p.transform.position;
         var distance = pToq.magnitude;
         var dSquared = distance*distance;
