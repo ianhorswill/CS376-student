@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 /// <summary>
@@ -20,6 +21,10 @@ public class Spawner : MonoBehaviour
     /// </summary>
     public float FreeRadius = 10;
 
+    /// i added this ~ hyunali
+    private Vector2 randomPoint;
+
+    private static float lapsedTime = 0;
     /// <summary>
     /// Check if we need to spawn and if so, do so.
     /// </summary>
@@ -27,5 +32,17 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         // TODO
+        
+        // getting a random point to spawn at
+        randomPoint = SpawnUtilities.RandomFreePoint(FreeRadius);
+        
+        // spawn an orb every 10 seconds
+        if (Time.time > lapsedTime)
+        {
+            // instantiate an orb
+            GameObject orb = Instantiate(Prefab, randomPoint, quaternion.identity);
+            // orb.transform.position = randomPoint;
+            lapsedTime += SpawnInterval;
+        }
     }
 }

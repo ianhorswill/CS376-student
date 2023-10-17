@@ -13,7 +13,8 @@ public class Orb : MonoBehaviour
     void OnBecameInvisible()
     {
         // TODO
-    }
+       Destroy(gameObject); // self-destruct when off screen
+    } 
 
     /// <summary>
     /// If this is called, then we hit something
@@ -23,5 +24,10 @@ public class Orb : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // TODO
+        if (collision.collider.GetComponent<Orb>() ==  null) // get component return the component or null
+        {   // if we get the orb component, ignore
+            // destroy on if the thing i hit was anything other than an orb
+            Destroy(gameObject);
+        }
     }
 }
