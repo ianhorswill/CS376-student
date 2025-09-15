@@ -1,4 +1,4 @@
-﻿namespace FakeUnity
+﻿namespace UnityEngine
 {
     /// <summary>
     /// This is just here for testing purposes.  It should really be in the tests project,

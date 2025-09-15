@@ -1,4 +1,4 @@
-﻿namespace FakeUnity
+﻿namespace UnityEngine
 {
     /// <summary>
     /// The component class is where all the real work gets done

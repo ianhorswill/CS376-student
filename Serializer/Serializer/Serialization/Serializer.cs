@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 
-namespace Assets.Serialization
+namespace UnityEngine
 {
     /// <summary>
     /// Serializes a data structure into a specified text stream

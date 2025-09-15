@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace Assets.Serialization
+namespace UnityEngine
 {
     /// <summary>
     /// Reconstructs a data structure from the output of Serializer that is equivalent to the data structure

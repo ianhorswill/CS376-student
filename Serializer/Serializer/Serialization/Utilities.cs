@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using FakeUnity;
+using UnityEngine;
 
-namespace Assets.Serialization
+namespace UnityEngine
 {
     public static class Utilities
     {
@@ -87,7 +87,7 @@ namespace Assets.Serialization
         public static object MakeInstance(string typeName)
         {
             // Get the type object in this DLL with the specified name
-            var t = Assembly.GetExecutingAssembly().GetType("FakeUnity."+typeName);
+            var t = Assembly.GetExecutingAssembly().GetType("UnityEngine."+typeName);
             if (t == null)
                 throw new ArgumentException($"Can't find a type named {typeName}");
             // Call its default constructor.  Sorry this is such a mess; C#'s API for reflection isn't beautiful.

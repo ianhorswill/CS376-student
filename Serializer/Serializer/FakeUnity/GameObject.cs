@@ -4,14 +4,18 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace FakeUnity
+namespace UnityEngine
 {
+    public abstract class Object { }
+    
+    public abstract class ScriptableObject: Object { }
+    
     /// <summary>
     /// A game object is mostly just a collection of components
     /// Rather than making subclasses of GameObject and putting special fields and methods in the subclasses,
     /// we make subclasses of Component, and then mix and match components within the one game object class.
     /// </summary>
-    public sealed class GameObject
+    public sealed class GameObject : ScriptableObject
     {
         /// <summary>
         /// Don't let people make their own game objects; they have to use Create().

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FakeUnity
+namespace UnityEngine
 {
     /// <summary>
     /// This is the attribute (annotation) you can add to a field to tell the serializer

@@ -1,18 +1,20 @@
 ﻿using System.Linq;
-using Assets.Serialization;
+using UnityEngine;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace FakeUnity.Tests
+namespace UnityEngine.Tests
 {
     [TestClass()]
     public class Tests
     {
         string RemoveAllWhitespace(string x) => new(x.Where(c => !char.IsWhiteSpace(c)).ToArray());
         
-        void TestSerialize<T>(T value, string expectedSerialization) 
-            => Assert.AreEqual(RemoveAllWhitespace(expectedSerialization),
-                RemoveAllWhitespace(Serializer.Serialize(value)),
+        void TestSerialize<T>(T value, string expectedSerialization)
+        {
+            var serialization = Serializer.Serialize(value);
+            Assert.AreEqual(RemoveAllWhitespace(expectedSerialization), RemoveAllWhitespace(serialization),
                 $"The value {value} did not serialize to the expected string");
+        }
 
         [TestMethod]
         public void SerializeInt() => TestSerialize(1, "1");
