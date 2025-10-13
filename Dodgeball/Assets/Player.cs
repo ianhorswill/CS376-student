@@ -39,7 +39,8 @@ public class Player : MonoBehaviour
 
     /// <summary>
     /// Fire if the player is pushing the button for the Fire axis
-    /// Unlike the Enemies, the player has no cooldown, so they shoot a whole blob of orbs
+    /// However, only fire every other call to MaybeFire().  We don't care
+    /// whether you only fire on odd numbered calls or even numbered calls.
     /// </summary>
     void MaybeFire()
     {

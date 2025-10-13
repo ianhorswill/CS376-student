@@ -16,6 +16,6 @@ public class Respawner : MonoBehaviour
     void OnBecameInvisible()
     {
         transform.position = SpawnUtilities.RandomFreePoint(FreeRadius);
-        GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0, 0);
     }
 }

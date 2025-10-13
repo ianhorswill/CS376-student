@@ -64,7 +64,7 @@ public class Enemy : MonoBehaviour
     // ReSharper disable once UnusedMember.Local
     void Start()
     {
-        player = FindObjectOfType<Player>().transform;
+        player = FindFirstObjectByType<Player>().transform;
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
