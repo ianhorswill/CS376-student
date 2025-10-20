@@ -21,4 +21,9 @@ public class TargetBox : MonoBehaviour
     {
         // FILL ME IN
     }
+    
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        // Fill me in
+    }
 }
