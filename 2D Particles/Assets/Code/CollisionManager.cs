@@ -35,7 +35,7 @@ public class CollisionManager : MonoBehaviour
 	    Left = tl.x;
 	    Right = br.x;
 
-	    particles = FindObjectsOfType<ParticlePhysics>();
+	    particles = FindObjectsByType<ParticlePhysics>(FindObjectsSortMode.None);
 	}
 	
 	/// <summary>

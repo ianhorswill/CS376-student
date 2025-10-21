@@ -30,7 +30,7 @@ public class ElectrostaticForceManager : MonoBehaviour {
         Left = tl.x;
         Right = br.x;
 
-        particles = FindObjectsOfType<ParticlePhysics>();
+        particles = FindObjectsByType<ParticlePhysics>(FindObjectsSortMode.None);
         forces = new ParticlePhysics.AppliedForce[particles.Length];
 
         for (int i = 0; i < particles.Length; i++)

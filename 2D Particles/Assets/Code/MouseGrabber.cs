@@ -74,7 +74,7 @@ public class MouseGrabber : MonoBehaviour
     private void EndDrag()
     {
         if (draggedParticle != null)
-        draggedParticle.Velocity = MouseVelocity;
+        //draggedParticle.Velocity = MouseVelocity;
         draggedParticle = null;
     }
 
@@ -89,7 +89,7 @@ public class MouseGrabber : MonoBehaviour
     private ParticlePhysics SelectedParticle()
     {
         var position = MouseWorldPosition;
-        foreach (var p in FindObjectsOfType<ParticlePhysics>())
+        foreach (var p in FindObjectsByType<ParticlePhysics>(FindObjectsSortMode.None))
         {
             if (p.Overlaps(position))
                 return p;
