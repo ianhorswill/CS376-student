@@ -64,7 +64,7 @@ public class MouseGrabber : MonoBehaviour
             if (PhysicsParameters.OneD)
                 position.y = draggedParticle.transform.position.y;
             draggedParticle.transform.position = position;
-            draggedParticle.Velocity = Vector2.zero;
+            //draggedParticle.Velocity = Vector2.zero;
         }
     }
 

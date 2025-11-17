@@ -84,7 +84,7 @@ public class PlayerControl : MonoBehaviour {
     /// </summary>
     internal void Start() {
         playerRB = GetComponent<Rigidbody>();
-        playerRB.velocity = transform.forward*3;
+        playerRB.linearVelocity = transform.forward*3;
     }
 
     /// <summary>
@@ -92,7 +92,7 @@ public class PlayerControl : MonoBehaviour {
     /// </summary>
     /// <param name="safe">True if we won, false if we crashed</param>
     private void OnGameOver(bool safe) {
-        playerRB.velocity = Vector3.zero;
+        playerRB.linearVelocity = Vector3.zero;
         playerRB.useGravity = false;
         playerRB.constraints = RigidbodyConstraints.FreezeAll;
         if (safe) {
@@ -108,7 +108,7 @@ public class PlayerControl : MonoBehaviour {
     internal void OnGUI()
     {
         StatusDisplay.text = string.Format("Speed: {0:00.00}    altitude: {1:00.00}    Thrust {2:0.0}",
-            playerRB.velocity.magnitude,
+            playerRB.linearVelocity.magnitude,
             transform.position.y,
             thrust);
     }

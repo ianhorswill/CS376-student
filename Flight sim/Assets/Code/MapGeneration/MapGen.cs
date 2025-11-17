@@ -19,7 +19,7 @@ public class MapGen : MonoBehaviour {
     
     void Start () {
         if (GenerateNewMap) {
-            Islands = FindObjectsOfType<Island>();
+            Islands = FindObjectsByType<Island>(FindObjectsSortMode.None);
             InitializeMap();
             InitializeTerrain();
         }
