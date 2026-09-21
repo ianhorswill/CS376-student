@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using UnityEngine;
+using FakeUnityEngine;
 
-namespace UnityEngine
+namespace FakeUnityEngine
 {
     public static class Utilities
     {

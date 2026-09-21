@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace UnityEngine
+namespace FakeUnityEngine
 {
     /// <summary>
     /// Placeholder for the Unity Transform component class

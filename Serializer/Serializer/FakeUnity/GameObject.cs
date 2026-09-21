@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace UnityEngine
+namespace FakeUnityEngine
 {
     public abstract class Object { }
     

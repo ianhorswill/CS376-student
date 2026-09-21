@@ -1,4 +1,4 @@
-﻿namespace UnityEngine
+﻿namespace FakeUnityEngine
 {
     /// <summary>
     /// A placeholder to stand in for Unity's SpriteRenderer component.

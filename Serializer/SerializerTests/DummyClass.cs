@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿using FakeUnityEngine;
 
 namespace SerializerTests.FakeUnity
 {

@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using UnityEngine;
+using FakeUnityEngine;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UnityEngine.Tests
+namespace FakeUnityEngine.Tests
 {
     [TestClass()]
     public class Tests

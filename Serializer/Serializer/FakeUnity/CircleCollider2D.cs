@@ -1,4 +1,4 @@
-﻿namespace UnityEngine
+﻿namespace FakeUnityEngine
 {
     /// <summary>
     /// This is just a stub to stand in for the Unity CircleCollider2D component
