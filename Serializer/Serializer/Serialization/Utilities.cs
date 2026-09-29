@@ -87,7 +87,7 @@ namespace FakeUnityEngine
         public static object MakeInstance(string typeName)
         {
             // Get the type object in this DLL with the specified name
-            var t = Assembly.GetExecutingAssembly().GetType("UnityEngine."+typeName);
+            var t = Assembly.GetExecutingAssembly().GetType(nameof(FakeUnityEngine)+"."+typeName);
             if (t == null)
                 throw new ArgumentException($"Can't find a type named {typeName}");
             // Call its default constructor.  Sorry this is such a mess; C#'s API for reflection isn't beautiful.
