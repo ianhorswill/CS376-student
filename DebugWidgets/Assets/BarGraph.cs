@@ -136,7 +136,7 @@ public class BarGraph : MonoBehaviour
 
         // The UI system requires that all UI widgets be inside of the GameObject that has the Canvas component.
         // So find the canvas component
-        var canvas = FindObjectOfType<Canvas>();
+        var canvas = FindFirstObjectByType<Canvas>();
 
         // TODO: Instantiate Prefab and put it inside of the game object that has the canvas.
         // Set its position to position and its rotation to the magic value Quaternion.identity, which means
