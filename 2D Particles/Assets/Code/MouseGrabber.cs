@@ -89,7 +89,7 @@ public class MouseGrabber : MonoBehaviour
     private ParticlePhysics SelectedParticle()
     {
         var position = MouseWorldPosition;
-        foreach (var p in FindObjectsByType<ParticlePhysics>(FindObjectsSortMode.None))
+        foreach (var p in FindObjectsByType<ParticlePhysics>())
         {
             if (p.Overlaps(position))
                 return p;
